@@ -1,4 +1,4 @@
-﻿namespace tallermecanico.infretruture.Interfaces
+﻿namespace CallCenter.infretruture.Interfaces
 {
     public interface IBaserepositorie<T> where T : class
     {

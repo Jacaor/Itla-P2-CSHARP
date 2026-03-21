@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tallermecanico.infretruture.Exeption
+namespace CallCenter.infretruture.Exeption
 {
-    public class CustomerEx:Exception
+    public class ManagerEx:Exception
     {
-        public CustomerEx(string message) : base(message)
+        public ManagerEx(string message) : base(message)
         {
         }
     }

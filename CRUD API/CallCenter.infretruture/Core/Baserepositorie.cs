@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using tallermecanico.infretruture.DBContex;
-using tallermecanico.infretruture.Interfaces;
+using CallCenter.infretruture.DBContex;
+using CallCenter.infretruture.Interfaces;
 
-namespace tallermecanico.infretruture.Core
+namespace CallCenter.infretruture.Core
 {
     public class Baserepositorie<T> : IBaserepositorie<T> where T : class
     {

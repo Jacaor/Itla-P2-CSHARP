@@ -5,9 +5,9 @@ VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRUD API", "CRUD API\CRUD API.csproj", "{7D52501C-5034-4DF5-91D0-F4F8DA40868E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tallermecanico.domain", "tallermecanico.domain\tallermecanico.domain.csproj", "{F7A013EF-E5A4-4F60-ACDA-E5A58A547DD4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallCenter.domain", "CallCenter.domain\CallCenter.domain.csproj", "{F7A013EF-E5A4-4F60-ACDA-E5A58A547DD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tallermecanico.infretruture", "tallermecanico.infretruture\tallermecanico.infretruture.csproj", "{2D0B9B4D-3E30-443B-8F52-1369629FF967}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallCenter.infretruture", "CallCenter.infretruture\CallCenter.infretruture.csproj", "{2D0B9B4D-3E30-443B-8F52-1369629FF967}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

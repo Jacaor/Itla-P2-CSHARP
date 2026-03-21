@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace tallermecanico.infretruture.Migrations
+namespace CallCenter.infretruture.Migrations
 {
     /// <inheritdoc />
     public partial class init : Migration
@@ -12,10 +12,10 @@ namespace tallermecanico.infretruture.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Customers",
+                name: "Managers",
                 columns: table => new
                 {
-                    CustomerId = table.Column<int>(type: "int", nullable: false)
+                    ManagerId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -24,7 +24,7 @@ namespace tallermecanico.infretruture.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customers", x => x.CustomerId);
+                    table.PrimaryKey("PK_Managers", x => x.ManagerId);
                 });
 
             migrationBuilder.CreateTable(
@@ -63,7 +63,7 @@ namespace tallermecanico.infretruture.Migrations
                 {
                     InvoiceId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    ManagerId = table.Column<int>(type: "int", nullable: false),
                     SellerId = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -71,10 +71,10 @@ namespace tallermecanico.infretruture.Migrations
                 {
                     table.PrimaryKey("PK_Invoices", x => x.InvoiceId);
                     table.ForeignKey(
-                        name: "FK_Invoices_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "CustomerId",
+                        name: "FK_Invoices_Managers_ManagerId",
+                        column: x => x.ManagerId,
+                        principalTable: "Managers",
+                        principalColumn: "ManagerId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Invoices_Sellers_SellerId",
@@ -96,17 +96,17 @@ namespace tallermecanico.infretruture.Migrations
                     UnitPrice = table.Column<double>(type: "float", nullable: false),
                     WholesalePrice = table.Column<double>(type: "float", nullable: false),
                     EntryDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CustomerId = table.Column<int>(type: "int", nullable: true),
+                    ManagerId = table.Column<int>(type: "int", nullable: true),
                     SellerId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SpareParts", x => x.SparePartId);
                     table.ForeignKey(
-                        name: "FK_SpareParts_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "CustomerId");
+                        name: "FK_SpareParts_Managers_ManagerId",
+                        column: x => x.ManagerId,
+                        principalTable: "Managers",
+                        principalColumn: "ManagerId");
                     table.ForeignKey(
                         name: "FK_SpareParts_Sellers_SellerId",
                         column: x => x.SellerId,
@@ -120,7 +120,7 @@ namespace tallermecanico.infretruture.Migrations
                 {
                     SaleId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    ManagerId = table.Column<int>(type: "int", nullable: false),
                     SellerId = table.Column<int>(type: "int", nullable: false),
                     Total = table.Column<double>(type: "float", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -130,10 +130,10 @@ namespace tallermecanico.infretruture.Migrations
                 {
                     table.PrimaryKey("PK_Sales", x => x.SaleId);
                     table.ForeignKey(
-                        name: "FK_Sales_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "CustomerId",
+                        name: "FK_Sales_Managers_ManagerId",
+                        column: x => x.ManagerId,
+                        principalTable: "Managers",
+                        principalColumn: "ManagerId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Sales_Invoices_InvoiceId",
@@ -159,7 +159,7 @@ namespace tallermecanico.infretruture.Migrations
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Year = table.Column<int>(type: "int", nullable: false),
-                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    ManagerId = table.Column<int>(type: "int", nullable: false),
                     SellerId = table.Column<int>(type: "int", nullable: true),
                     InvoiceId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -167,10 +167,10 @@ namespace tallermecanico.infretruture.Migrations
                 {
                     table.PrimaryKey("PK_Vehicles", x => x.VehicleId);
                     table.ForeignKey(
-                        name: "FK_Vehicles_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "CustomerId",
+                        name: "FK_Vehicles_Managers_ManagerId",
+                        column: x => x.ManagerId,
+                        principalTable: "Managers",
+                        principalColumn: "ManagerId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Vehicles_Invoices_InvoiceId",
@@ -221,7 +221,7 @@ namespace tallermecanico.infretruture.Migrations
                     VehicleId = table.Column<int>(type: "int", nullable: false),
                     LicensePlate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MechanicId = table.Column<int>(type: "int", nullable: false),
-                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    ManagerId = table.Column<int>(type: "int", nullable: false),
                     InvoiceId = table.Column<int>(type: "int", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Cost = table.Column<double>(type: "float", nullable: false),
@@ -232,10 +232,10 @@ namespace tallermecanico.infretruture.Migrations
                 {
                     table.PrimaryKey("PK_Repairs", x => x.RepairId);
                     table.ForeignKey(
-                        name: "FK_Repairs_Customers_CustomerId",
-                        column: x => x.CustomerId,
-                        principalTable: "Customers",
-                        principalColumn: "CustomerId",
+                        name: "FK_Repairs_Managers_ManagerId",
+                        column: x => x.ManagerId,
+                        principalTable: "Managers",
+                        principalColumn: "ManagerId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Repairs_Invoices_InvoiceId",
@@ -262,9 +262,9 @@ namespace tallermecanico.infretruture.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Invoices_CustomerId",
+                name: "IX_Invoices_ManagerId",
                 table: "Invoices",
-                column: "CustomerId");
+                column: "ManagerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Invoices_SellerId",
@@ -272,9 +272,9 @@ namespace tallermecanico.infretruture.Migrations
                 column: "SellerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Repairs_CustomerId",
+                name: "IX_Repairs_ManagerId",
                 table: "Repairs",
-                column: "CustomerId");
+                column: "ManagerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Repairs_InvoiceId",
@@ -307,9 +307,9 @@ namespace tallermecanico.infretruture.Migrations
                 column: "SparePartId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Sales_CustomerId",
+                name: "IX_Sales_ManagerId",
                 table: "Sales",
-                column: "CustomerId");
+                column: "ManagerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Sales_InvoiceId",
@@ -322,9 +322,9 @@ namespace tallermecanico.infretruture.Migrations
                 column: "SellerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SpareParts_CustomerId",
+                name: "IX_SpareParts_ManagerId",
                 table: "SpareParts",
-                column: "CustomerId");
+                column: "ManagerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SpareParts_SellerId",
@@ -332,9 +332,9 @@ namespace tallermecanico.infretruture.Migrations
                 column: "SellerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vehicles_CustomerId",
+                name: "IX_Vehicles_ManagerId",
                 table: "Vehicles",
-                column: "CustomerId");
+                column: "ManagerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Vehicles_InvoiceId",
@@ -372,7 +372,7 @@ namespace tallermecanico.infretruture.Migrations
                 name: "Invoices");
 
             migrationBuilder.DropTable(
-                name: "Customers");
+                name: "Managers");
 
             migrationBuilder.DropTable(
                 name: "Sellers");

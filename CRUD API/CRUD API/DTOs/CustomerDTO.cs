@@ -1,7 +1,7 @@
 ﻿
-namespace tallermecanico.aplication.DTOs
+namespace CallCenter.aplication.DTOs
 {
-    public class CustomerDTO
+    public class ManagerDTO
     {
        
         public string FirstName { get; set; }
