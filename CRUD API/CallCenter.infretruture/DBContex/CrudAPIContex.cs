@@ -2,9 +2,9 @@
 using CallCenter.infretruture.Model;
 namespace CallCenter.infretruture.DBContex
 {
-    public class CrudAPIContex: DbContext
+    public class CallCenterAPIContex: DbContext
     {
-        public CrudAPIContex(DbContextOptions<CrudAPIContex> options) : base(options)
+        public CallCenterAPIContex(DbContextOptions<CallCenterAPIContex> options) : base(options)
         {
         }
         public DbSet<ManagerModel> Managers { get; set; }

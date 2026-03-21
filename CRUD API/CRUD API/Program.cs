@@ -8,7 +8,7 @@ using CallCenter.infretruture.DBContex;
     
             var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddDbContext<CrudAPIContex>(options =>
+            builder.Services.AddDbContext<CallCenterAPIContex>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });

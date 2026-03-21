@@ -11,8 +11,8 @@ namespace CallCenter.infretruture.Core
 {
     public class Baserepositorie<T> : IBaserepositorie<T> where T : class
     {
-        private readonly CrudAPIContex _contex;
-        public Baserepositorie(CrudAPIContex contex)
+        private readonly CallCenterAPIContex _contex;
+        public Baserepositorie(CallCenterAPIContex contex)
         {
             contex = _contex;
         }

@@ -3,14 +3,14 @@ using CallCenter.infretruture.Model;
 using CallCenter.infretruture.DBContex;
 using CallCenter.aplication.DTOs;
 
-namespace CRUD_API.Controllers
+namespace CallCenter_API.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
     public class ManagerController : ControllerBase
     {
-        private readonly CrudAPIContex _aPIContex;
-        public ManagerController(CrudAPIContex aPIContex)
+        private readonly CallCenterAPIContex _aPIContex;
+        public ManagerController(CallCenterAPIContex aPIContex)
         {
             _aPIContex = aPIContex;
         }

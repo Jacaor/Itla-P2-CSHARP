@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CallCenter.infretruture.Migrations
 {
-    [DbContext(typeof(CrudAPIContex))]
-    partial class CrudAPIContexModelSnapshot : ModelSnapshot
+    [DbContext(typeof(CallCenterAPIContex))]
+    partial class CallCenterAPIContexModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

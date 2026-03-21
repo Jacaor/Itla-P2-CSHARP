@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CallCenter.infretruture.Migrations;
 
-[DbContext(typeof(CrudAPIContex))]
+[DbContext(typeof(CallCenterAPIContex))]
 [Migration("20251031013510_AddNewColumnToManagers")]
 partial class AddNewColumnToManagers
 {
