@@ -1,12 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-namespace tallermecanico.domain.Entityes
+namespace CallCenter.domain.Entityes
 {
 
-    public class Customer
+    public class Manager
     {
-        [Column("CustomerId")]
+        [Column("ManagerId")]
 
         public int Id { get; set; }
         public string FirstName { get; set; }

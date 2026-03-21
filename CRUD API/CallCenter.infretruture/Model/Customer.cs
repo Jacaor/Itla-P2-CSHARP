@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 
 
-namespace tallermecanico.infretruture.Model
+namespace CallCenter.infretruture.Model
 {
 
-    public class CustomerModel
+    public class ManagerModel
 
     {
-        [Column("CustomerId")]
+        [Column("ManagerId")]
         public int Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; } 
@@ -19,16 +19,16 @@ namespace tallermecanico.infretruture.Model
 
 
 
-    public CustomerModel(int customerid, string firstName, string phoneNumber, string email, string lastName)
+    public ManagerModel(int managerid, string firstName, string phoneNumber, string email, string lastName)
     {
-            Id = customerid;
+            Id = managerid;
             FirstName = firstName;
             PhoneNumber = phoneNumber;
             Email = email;
             LastName = lastName;
     }
 
-    public CustomerModel() { }
+    public ManagerModel() { }
 }
 
 }

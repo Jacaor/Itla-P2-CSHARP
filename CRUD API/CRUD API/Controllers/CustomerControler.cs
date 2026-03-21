@@ -1,26 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using tallermecanico.infretruture.Model;
-using tallermecanico.infretruture.DBContex;
-using tallermecanico.aplication.DTOs;
+using CallCenter.infretruture.Model;
+using CallCenter.infretruture.DBContex;
+using CallCenter.aplication.DTOs;
 
 namespace CRUD_API.Controllers
 {
     [ApiController]
     [Route("api/[Controller]")]
-    public class CustomerController : ControllerBase
+    public class ManagerController : ControllerBase
     {
         private readonly CrudAPIContex _aPIContex;
-        public CustomerController(CrudAPIContex aPIContex)
+        public ManagerController(CrudAPIContex aPIContex)
         {
             _aPIContex = aPIContex;
         }
         [HttpGet]
-        public IActionResult GetAllCustomers()
+        public IActionResult GetAllManagers()
         {
-            var customers = _aPIContex.Customers.ToList();
-            var list = new List<CustomerDTO>();
+            var managers = _aPIContex.Managers.ToList();
+            var list = new List<ManagerDTO>();
 
-            var seleccustomers = customers.Select(c => new CustomerDTO
+            var selecmanagers = managers.Select(c => new ManagerDTO
             {
 
                 FirstName = c.FirstName,
@@ -30,62 +30,62 @@ namespace CRUD_API.Controllers
 
 
             }).ToList();
-            return Ok(seleccustomers);
+            return Ok(selecmanagers);
 
         }
         [HttpGet("{id}")]
-        public IActionResult GetCustomerById(int id)
+        public IActionResult GetManagerById(int id)
         {
-            var customer = _aPIContex.Customers.FirstOrDefault(c => c.Id == id);
-            if (customer == null)
+            var manager = _aPIContex.Managers.FirstOrDefault(c => c.Id == id);
+            if (manager == null)
             {
                 return NotFound();
             }
-            return Ok(customer);
+            return Ok(manager);
         }
         [HttpPost]
-        public IActionResult CreateCustomer([FromBody] CustomerDTO customerdto)
+        public IActionResult CreateManager([FromBody] ManagerDTO managerdto)
         {
-            var customerdb = new CustomerModel
+            var managerdb = new ManagerModel
             {
 
-                FirstName = customerdto.FirstName,
-                LastName = customerdto.LastName,
-                Email = customerdto.Email,
-                PhoneNumber = customerdto.PhoneNumber
+                FirstName = managerdto.FirstName,
+                LastName = managerdto.LastName,
+                Email = managerdto.Email,
+                PhoneNumber = managerdto.PhoneNumber
             };
 
-            _aPIContex.Add(customerdb);
+            _aPIContex.Add(managerdb);
             _aPIContex.SaveChanges();
-            return Ok(customerdto);
+            return Ok(managerdto);
         }
 
 
         [HttpPut("{id}")]
-        public IActionResult UpdateCustomer(int id, [FromBody] CustomerDTO customerdto)
+        public IActionResult UpdateManager(int id, [FromBody] ManagerDTO managerdto)
         {
-            var customer = _aPIContex.Customers.FirstOrDefault(c => c.Id == id);
-            if (customer == null)
+            var manager = _aPIContex.Managers.FirstOrDefault(c => c.Id == id);
+            if (manager == null)
             {
                 return NotFound($"Cliente no con {id}encontrado");
             }
-            customer.FirstName = customerdto.FirstName;
-            customer.LastName = customerdto.LastName;
-            customer.Email = customerdto.Email;
-            customer.PhoneNumber = customerdto.PhoneNumber;
-            _aPIContex.Customers.Update(customer);
+            manager.FirstName = managerdto.FirstName;
+            manager.LastName = managerdto.LastName;
+            manager.Email = managerdto.Email;
+            manager.PhoneNumber = managerdto.PhoneNumber;
+            _aPIContex.Managers.Update(manager);
             _aPIContex.SaveChanges();
             return NoContent();
         }
         [HttpDelete("{id}")]
-        public IActionResult DeleteCustomer(int id, [FromBody] CustomerDTO customerdto)
+        public IActionResult DeleteManager(int id, [FromBody] ManagerDTO managerdto)
         {
-            var customer = _aPIContex.Customers.FirstOrDefault(c => c.Id == id);
-            if (customer == null)
+            var manager = _aPIContex.Managers.FirstOrDefault(c => c.Id == id);
+            if (manager == null)
             {
                 return NotFound($"Cliente con id:{id} no encontrado");
             }
-            _aPIContex.Customers.Remove(customer);
+            _aPIContex.Managers.Remove(manager);
             _aPIContex.SaveChanges();
             return NoContent();
         }

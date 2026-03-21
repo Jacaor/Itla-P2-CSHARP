@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace tallermecanico.infretruture.Migrations
+namespace CallCenter.infretruture.Migrations
 {
     /// <inheritdoc />
-    public partial class AddNewColumnToCustomers : Migration
+    public partial class AddNewColumnToManagers : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
