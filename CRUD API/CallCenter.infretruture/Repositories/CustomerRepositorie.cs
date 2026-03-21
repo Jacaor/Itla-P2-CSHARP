@@ -14,7 +14,7 @@ namespace CallCenter.infretruture.Repositories
 
     {
         
-        public ManagerRepositorie(CrudAPIContex contex) : base(contex)
+        public ManagerRepositorie(CallCenterAPIContex contex) : base(contex)
         {
           
         }
