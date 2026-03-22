@@ -67,7 +67,7 @@ namespace CallCenter_API.Controllers
             var manager = _aPIContex.Managers.FirstOrDefault(c => c.Id == id);
             if (manager == null)
             {
-                return NotFound($"Cliente no con {id}encontrado");
+                return NotFound($"Manager no con {id} encontrado");
             }
             manager.FirstName = managerdto.FirstName;
             manager.LastName = managerdto.LastName;
@@ -83,7 +83,7 @@ namespace CallCenter_API.Controllers
             var manager = _aPIContex.Managers.FirstOrDefault(c => c.Id == id);
             if (manager == null)
             {
-                return NotFound($"Cliente con id:{id} no encontrado");
+                return NotFound($"Manager con id:{id} no encontrado");
             }
             _aPIContex.Managers.Remove(manager);
             _aPIContex.SaveChanges();
