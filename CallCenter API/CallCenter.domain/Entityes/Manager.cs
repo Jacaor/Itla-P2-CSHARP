@@ -1,9 +1,13 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace CallCenter.aplication.DTOs
+namespace CallCenter.domain.Entityes
 {
-    public class ManagerDTO
+    [Table("Managers")]
+    public class Manager
     {
+        [Key]
+        [Column("ManagerId")]
         public int Id { get; set; }
 
         [Required]

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CallCenter.infretruture.Model;
+using CallCenter.domain.Entityes;
 
 namespace CallCenter.infretruture.Interfaces
 {
-    public interface IManager:IBaserepositorie<ManagerModel>
+    public interface IManager : IBaserepositorie<Manager>
     {
     }
 }

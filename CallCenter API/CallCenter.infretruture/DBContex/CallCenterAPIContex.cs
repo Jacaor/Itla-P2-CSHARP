@@ -1,18 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using CallCenter.infretruture.Model;
+using CallCenter.domain.Entityes;
+using Microsoft.EntityFrameworkCore;
+
 namespace CallCenter.infretruture.DBContex
 {
-    public class CallCenterAPIContex: DbContext
+    public class CallCenterAPIContex : DbContext
     {
         public CallCenterAPIContex(DbContextOptions<CallCenterAPIContex> options) : base(options)
         {
         }
-        public DbSet<ManagerModel> Managers { get; set; }
-    
 
-
-
-
-
+        public DbSet<Manager> Managers => Set<Manager>();
     }
 }
